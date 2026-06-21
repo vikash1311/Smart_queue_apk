@@ -5,6 +5,7 @@ const authRoutes = require('./routes/auth.routes');
 const venueRoutes = require('./routes/venue.routes');
 const queueRoutes = require('./routes/queue.routes');
 const tokenRoutes = require('./routes/token.routes');
+const setupRoutes = require('./routes/setup.routes');
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.use(cors({ origin: process.env.CLIENT_URL || 'http://localhost:5173' }));
 app.use(express.json());
 
 // Routes
+app.use('/api/setup', setupRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/venues', venueRoutes);
 app.use('/api/queues', queueRoutes);
